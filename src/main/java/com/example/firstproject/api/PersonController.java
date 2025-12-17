@@ -33,18 +33,13 @@ public class PersonController {
     }
 
     @GetMapping(path = "{id}")
-    public Optional<Person> getPersonById(@PathVariable("id") UUID id) {
+    public Optional<Person> getPersonById(@PathVariable("id") String id) {
         return personService.getPersonById(id);
     }
 
     @DeleteMapping(path = "{id}")
-    public int deletePerson(@PathVariable("id") UUID id) {
+    public int deletePerson(@PathVariable("id") String id) {
         return personService.deletePerson(id);
     }
 
-    @PutMapping("{id}")
-    public int updatePerson(@PathVariable("id") UUID id,
-                            @Valid @NonNull @RequestBody Person updatedPerson) {
-        return personService.updatePerson(id, updatedPerson);
-    }
 }

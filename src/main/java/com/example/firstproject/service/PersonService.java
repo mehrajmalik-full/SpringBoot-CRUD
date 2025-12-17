@@ -20,7 +20,7 @@ public class PersonService {
         this.personDao = personDao;
     }
 
-    public int addPerson(Person person) {
+    public String addPerson(Person person) {
         return personDao.insertPerson(person);
     }
 
@@ -28,15 +28,12 @@ public class PersonService {
         return personDao.selectAllPerson();
     }
 
-    public Optional<Person> getPersonById(UUID id){
+    public Optional<Person> getPersonById(String id){
         return personDao.selectPersonById(id);
     }
 
-    public int deletePerson(UUID id){
+    public int deletePerson(String id){
         return personDao.deletePersonById(id);
     }
 
-    public int updatePerson(UUID id, Person updatedPerson){
-        return personDao.updatePersonById(id, updatedPerson);
-    }
 }

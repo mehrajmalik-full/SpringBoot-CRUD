@@ -7,16 +7,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface PersonDao {
-    int insertPerson(UUID id, Person person);
-    default int insertPerson(Person person){
-        UUID id = UUID.randomUUID();
-        return insertPerson(id, person);
-    }
+    String insertPerson(Person person);
 
     List<Person> selectAllPerson();
 
 
-    Optional<Person> selectPersonById(UUID id);
-    int deletePersonById(UUID id);
-    int updatePersonById(UUID id, Person person);
+    Optional<Person> selectPersonById(String id);
+    int deletePersonById(String id);
 }
